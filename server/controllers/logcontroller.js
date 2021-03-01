@@ -27,7 +27,7 @@ router.post('/create', validateJWT, async (req, res) => {
     } catch (err) {
         res.status(500).json({ error: err });
     }
-    LogModel.create(logEntry);
+    // LogModel.create(logEntry);
 
 });
 
