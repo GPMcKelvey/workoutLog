@@ -3,7 +3,7 @@ const router = Express.Router();
 const validateJWT = require("../middleware/validate-jwt");
 
 const { LogModel } = require("../models");
-
+const { UserModel } = require("../models");
 
 
 /*
@@ -46,7 +46,7 @@ router.get('/view', validateJWT, async (req, res) => {
         });
         res.status(200).json(userLogs);
     } catch (err) {
-        res.status(500).json({ error: err });
+        res.status(500).json({ error: console.log("There is an error here") });
     }
 });
 
@@ -116,7 +116,7 @@ router.delete("/delete/:id", validateJWT, async (req, res) => {
         const query = {
             where: {
                 id: logId,
-                //owner: ownerId
+                owner: ownerId
             }
         };
 
